@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background-color: #121212; /* Dark background */
+            color: white;
             margin: 0;
             padding: 0;
         }
@@ -15,7 +16,7 @@
             width: 100%;
             max-width: 600px;
             margin: 20px auto;
-            background-color: white;
+            background-color: #1e1e1e; /* Dark container */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
@@ -27,12 +28,12 @@
             flex-grow: 1;
             height: 100%;
             width: 100%;
-            border: 1px solid #ccc;
+            border: 1px solid #444;
             border-radius: 4px;
             padding: 10px;
             margin-bottom: 15px;
             overflow-y: auto;
-            background-color: #fafafa;
+            background-color: #333; /* Dark background for chat box */
             font-size: 14px;
             word-wrap: break-word;
         }
@@ -46,8 +47,10 @@
             width: 75%;
             padding: 10px;
             border-radius: 4px;
-            border: 1px solid #ccc;
+            border: 1px solid #444;
             font-size: 14px;
+            background-color: #555; /* Dark background for input */
+            color: white;
         }
         .input-container button {
             width: 20%;
@@ -67,11 +70,11 @@
             font-size: 14px;
         }
         .bot-message {
-            color: #2b2b2b;
+            color: #ff9800; /* Orange color for bot messages */
             font-weight: bold;
         }
         .user-message {
-            color: #555;
+            color: #b0b0b0; /* Light gray for user messages */
         }
 
         /* Mobile responsive styles */
@@ -95,7 +98,7 @@
 <body>
 
     <div class="chat-container">
-        <h2 style="text-align: center;">Offline Chat App</h2>
+        <h2 style="text-align: center; color: #fff;">Offline Chat App</h2>
         <div class="chat-box" id="chat-box"></div>
         <div class="input-container">
             <input type="text" id="user-input" placeholder="Type your message..." />
@@ -104,6 +107,16 @@
     </div>
 
     <script>
+        // List of random responses from the bot
+        const responses = [
+            'Abey dimag mat kharab kar kaam karle jakar.',
+            'Abey koi or kaam dham nahi hai kya terpe aa jata hai mere pass.',
+            'Chalaja warna tere muh me muut dungi.',
+            'Tatti si shakal ke chala ja yaha se.',
+            'Aapka na chehra acha hai na aap ammir ho isliye jakar padhai karo.',
+            'Tere muh par toh kabootar bhi nahi hagenge.'
+        ];
+
         // Function to handle sending message
         function sendMessage() {
             const userInput = document.getElementById('user-input').value.trim();
@@ -116,9 +129,12 @@
                 return;
             }
 
-            // Provide the fixed response
-            const response = 'Bhosdk padhai karle jakar, teri maa ki chut chtiye rand ke bache abhi mahila helpline par call karti hu ';
-            chatBox.innerHTML += `<div class="message bot-message">Hamari GF: ${response}</div>`;
+            // Get a random bot response from the list
+            const randomIndex = Math.floor(Math.random() * responses.length);
+            const response = responses[randomIndex];
+
+            // Show the bot's random response
+            chatBox.innerHTML += `<div class="message bot-message">Bot: ${response}</div>`;
 
             // Scroll to the bottom of the chat box
             chatBox.scrollTop = chatBox.scrollHeight;
