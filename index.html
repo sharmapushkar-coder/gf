@@ -97,7 +97,7 @@
 <body>
 
     <div class="chat-container">
-        <h2 style="text-align: center; color: #fff;">OUR GIRLFRIEND(24*7 ACTIVE)👀</h2>
+        <h2 style="text-align: center; color: #fff;">Real Girl friend !</h2>
         <div class="chat-box" id="chat-box"></div>
         <div class="input-container">
             <input type="text" id="user-input" placeholder="Type your message..." />
@@ -133,7 +133,10 @@
             const response = responses[randomIndex];
 
             // Show the bot's random response
-            chatBox.innerHTML += `<div class="message bot-message">HER: ${response}</div>`;
+            setTimeout(function(){
+                chatBox.innerHTML += `<div class="message bot-message">HER: ${response}</div>`;
+            },1000)
+            
 
             // Scroll to the bottom of the chat box
             chatBox.scrollTop = chatBox.scrollHeight;
